@@ -1,12 +1,14 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Ellipse } from '@/components/ui/ellipse'
 import { Navigation } from '@/components/layouts/Navigation'
 import { CurvedButton } from '@/components/ui/CurvedButton'
 import { BadgeIcon } from '@/components/ui/BadgeIcon'
 import { Vector } from '@/components/ui/Vector'
 import { AnimatedVector } from '@/components/ui/AnimatedVector'
+import { Line } from '@/components/ui/Line'
 import { heroContent } from '@/constants/pageContent'
 import { colors } from '@/constants/colors'
 
@@ -84,9 +86,38 @@ export default function Page() {
               />
               <Link 
                 href={cta.secondaryLink.href}
-                className="font-['General Sans'] text-base font-medium leading-none tracking-normal hover:opacity-80 transition-opacity"
-                style={{ color: cta.secondaryLink.textColor }}
+                className="flex flex-row items-center hover:opacity-80 transition-opacity"
+                style={{ 
+                  width: cta.secondaryLink.width,
+                  height: cta.secondaryLink.height,
+                  borderRadius: cta.secondaryLink.borderRadius,
+                  border: `${cta.secondaryLink.borderWidth} solid ${colors.border.gray}`,
+                  paddingTop: cta.secondaryLink.padding?.top,
+                  paddingRight: cta.secondaryLink.padding?.right,
+                  paddingBottom: cta.secondaryLink.padding?.bottom,
+                  paddingLeft: cta.secondaryLink.padding?.left,
+                  gap: cta.secondaryLink.gap,
+                  fontFamily: "General Sans",
+                  color: cta.secondaryLink.textColor,
+                  fontSize: cta.secondaryLink.fontSize,
+                  fontWeight: cta.secondaryLink.fontWeight,
+                  lineHeight: cta.secondaryLink.lineHeight,
+                  letterSpacing: cta.secondaryLink.letterSpacing,
+                }}
               >
+                <Image
+                  src="/apple.svg"
+                  alt="Apple"
+                  width={18}
+                  height={22}
+                  priority
+                  unoptimized
+                  style={{ display: 'block' }}
+                />
+                <Line 
+                  width={18}
+                  borderWidth={0.5}
+                />
                 {cta.secondaryLink.text}
               </Link>
             </div>

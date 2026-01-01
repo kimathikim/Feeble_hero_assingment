@@ -27,7 +27,22 @@ export const heroContent: HeroContent = {
     secondaryLink: {
       text: 'Download the Mac app',
       href: '#download',
-      textColor: colors.primary.blue,
+      textColor: colors.link.dark,
+      fontSize: '18px',
+      fontWeight: '500',
+      lineHeight: '120%',
+      letterSpacing: '-2%',
+      width: '266px',
+      height: '46px',
+      borderRadius: '50px',
+      borderWidth: '0.7px',
+      padding: {
+        top: '12px',
+        right: '20px',
+        bottom: '12px',
+        left: '20px',
+      },
+      gap: '12px',
     },
   },
 };

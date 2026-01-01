@@ -43,5 +43,15 @@ export const colors = {
   layout: {
     body: 'rgba(190,219,242,0.95)',
   },
+  
+  // Border colors
+  border: {
+    gray: '#6C788F',
+  },
+  
+  // Link colors
+  link: {
+    dark: '#1D2026',
+  },
 } as const;
 

@@ -27,6 +27,21 @@ export interface HeroCTA {
     text: string;
     href: string;
     textColor: string;
+    fontSize?: string;
+    fontWeight?: string;
+    lineHeight?: string;
+    letterSpacing?: string;
+    width?: string;
+    height?: string;
+    borderRadius?: string;
+    borderWidth?: string;
+    padding?: {
+      top?: string;
+      right?: string;
+      bottom?: string;
+      left?: string;
+    };
+    gap?: string;
   };
 }
 
