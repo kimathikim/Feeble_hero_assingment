@@ -14,7 +14,6 @@ export const BadgeIcon = ({
   borderRadius,
   opacity = 1,
 }: BadgeIconProps) => {
-  // Use absolute if provided in className, otherwise default to relative
   const positionClass = className.includes('absolute') ? '' : 'relative';
   
   const widthValue = typeof width === 'number' ? `${width}px` : width;
@@ -23,7 +22,6 @@ export const BadgeIcon = ({
     ? (typeof borderRadius === 'number' ? `${borderRadius}px` : borderRadius)
     : '185.79px';
   
-  // Calculate dot positions based on size (proportional to original 32x17)
   const dotSize = typeof width === 'number' ? (width / 32) * 3.32 : '3.32px';
   const dotTop = typeof height === 'number' ? (height / 17) * 7 : '7px';
   const dotLeft1 = typeof width === 'number' ? (width / 32) * 8 : '8px';

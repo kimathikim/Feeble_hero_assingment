@@ -4,10 +4,12 @@ import { Ellipse } from "@/components/ui/ellipse";
 import { Vector } from "@/components/ui/Vector";
 import { AnimatedVector } from "@/components/ui/AnimatedVector";
 import { AnimatedVectorWithBadge } from "@/components/ui/AnimatedVectorWithBadge";
+import { AnimatedCloud } from "@/components/ui/AnimatedCloud";
 import { HeroContent } from "@/components/ui/HeroContent";
 import { heroContent } from "@/constants/pageContent";
 import { colors } from "@/constants/colors";
 import { vectorPositions } from "@/constants/vectors";
+import { cloudContainer, clouds } from "@/constants/clouds";
 
 export default function Page() {
   const {
@@ -65,6 +67,19 @@ export default function Page() {
         ))}
       </div>
       <HeroContent content={heroContent} />
+      <div
+        className="absolute"
+        style={{
+          width: `${cloudContainer.width}px`,
+          height: `${cloudContainer.height}px`,
+          top: `${cloudContainer.top}px`,
+          opacity: cloudContainer.opacity,
+        }}
+      >
+        {clouds.map((cloud, index) => (
+          <AnimatedCloud key={index} {...cloud} />
+        ))}
+      </div>
     </main>
   );
 }

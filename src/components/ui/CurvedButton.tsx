@@ -15,21 +15,65 @@ const getContrastColor = (hexcolor: string) => {
   return (yiq >= 128) ? colors.utility.black : colors.utility.white;
 };
 
-const ConcaveReveal = ({ isHovered, hoverColor = colors.background.white }: EffectProps) => {
+const EllipseReveal = ({ isHovered, hoverColor = colors.background.white }: EffectProps) => {
+  const ellipseSize = 64.85;
+  const ellipseRadius = ellipseSize / 2;
+  
   return (
-    <div className="absolute inset-0 w-full h-full pointer-events-none">
+    <>
+      {/* White fill */}
       <motion.div
-        initial={{ x: '105%' }}
+        initial={{ width: 0 }}
         animate={{ 
-          x: isHovered ? '0%' : '105%',
+          width: isHovered ? 'calc(100% - 80px - 66.85px)' : 0,
         }}
         transition={{ type: 'spring', stiffness: 120, damping: 24, mass: 1 }}
         style={{ 
           backgroundColor: hoverColor,
+          top: '-30%',
+          left: 'calc(40px + 32.425px)',
+          height: `${ellipseSize}px`,
+          transform: 'translateY(-50%)',
         }}
-        className="absolute inset-0 z-[2] rounded-tl-[15px] rounded-bl-[15px]"
+        className="absolute z-[2] pointer-events-none"
       />
-    </div>
+      
+      <motion.div
+        initial={{ x: '150%' }}
+        animate={{ 
+          x: isHovered ? '-330%' : '150%',
+        }}
+        transition={{ type: 'spring', stiffness: 120, damping: 24, mass: 1 }}
+        className="absolute z-[3] pointer-events-none"
+        style={{
+          top: '-30%',
+          left: '100px',
+          transform: 'translateY(-50%)',
+        }}
+      >
+        {/* Left half ellipse */}
+        <div
+          style={{ 
+            backgroundColor: hoverColor,
+            width: `${ellipseRadius}px`,
+            height: `${ellipseSize}px`,
+            borderRadius: `${ellipseRadius}px 0 0 ${ellipseRadius}px`,
+          }}
+        />
+        {/* White rectangle attached to the right */}
+        <div
+          style={{ 
+            backgroundColor: hoverColor,
+            width: '120px',
+            height: `${ellipseSize}px`,
+            position: 'absolute',
+            left: `${ellipseRadius}px`,
+            top: 0,
+            marginLeft: '-1px',
+          }}
+        />
+      </motion.div>
+    </>
   );
 };
 
@@ -52,11 +96,11 @@ export const CurvedButton = ({
         boxShadow: enableHover && isHovered ? `0 0 10px ${colors.shadow.medium}` : 'none',
       }}
     >
-      {enableHover && (
-        <div className="absolute inset-0 z-0 w-[138px] h-[41px]">
-          <ConcaveReveal isHovered={isHovered} hoverColor={hoverColor} />
-        </div>
-      )}
+      <div className="absolute inset-0 z-0 w-[138px] h-[41px] overflow-hidden">
+        {enableHover && (
+          <EllipseReveal isHovered={isHovered} hoverColor={hoverColor} />
+        )}
+      </div>
       <span 
         className="relative z-10 text-[16px] font-medium leading-[120%] tracking-[-0.02em] font-['General Sans'] transition-colors duration-500 h-[19px]"
         style={{ 

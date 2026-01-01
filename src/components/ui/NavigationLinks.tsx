@@ -19,11 +19,21 @@ export function NavigationLinks() {
           <Link
             key={link.href}
             href={link.href}
-            className={`nav-link cursor-pointer flex items-center justify-center h-[38px] py-2 px-3 font-['General Sans'] text-base font-medium leading-none tracking-normal ${
+            className={`nav-link cursor-pointer flex items-center justify-center h-[38px] py-2 px-3 font-['General Sans'] text-base font-medium leading-none tracking-normal transition-colors ${
               link.label === 'Join & Guides' ? 'min-w-[122px]' : ''
             } ${isActive ? 'opacity-100' : 'opacity-90 hover:opacity-100'}`}
             style={{
               color: isActive ? colors.utility.white : colors.navigation.link,
+            }}
+            onMouseEnter={(e) => {
+              if (!isActive) {
+                e.currentTarget.style.color = colors.utility.black;
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!isActive) {
+                e.currentTarget.style.color = colors.navigation.link;
+              }
             }}
           >
             <span className="h-[22px]">{link.label}</span>

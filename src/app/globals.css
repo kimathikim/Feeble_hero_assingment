@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 
-/* Navigation link styles - colors are applied via inline styles using colors constant */
 .nav-link {
   transition: color 0.2s ease;
 }
