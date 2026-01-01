@@ -23,6 +23,22 @@ export const vectorPositions = {
     { top: 329.02, left: 495.3 },
     { top: 465, left: 1446.18 },
   ],
+  fadeOutVectors: [
+    {
+      top: 329.02,
+      left: 495.3,
+      initialTop: '100vh',
+      initialLeft: 495.3,
+      delay: 0.2,
+    },
+    {
+      top: 465,
+      left: 1446.18,
+      initialTop: '100vh',
+      initialLeft: 1446.18,
+      delay: 0.4,
+    },
+  ],
   vectorsWithBadges: [
     {
       src: '/vector1.png',

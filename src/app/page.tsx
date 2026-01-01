@@ -10,8 +10,13 @@ import { colors } from "@/constants/colors";
 import { vectorPositions } from "@/constants/vectors";
 
 export default function Page() {
-  const { container, animatedVectors, staticVectors, vectorsWithBadges } =
-    vectorPositions;
+  const {
+    container,
+    animatedVectors,
+    staticVectors,
+    vectorsWithBadges,
+    fadeOutVectors,
+  } = vectorPositions;
 
   return (
     <main
@@ -27,6 +32,18 @@ export default function Page() {
       />
       {staticVectors.map((vector, index) => (
         <Vector key={index} top={vector.top} left={vector.left} />
+      ))}
+      {fadeOutVectors.map((vector, index) => (
+        <AnimatedVector
+          key={`fade-out-${index}`}
+          top={vector.top}
+          left={vector.left}
+          initialTop={vector.initialTop}
+          initialLeft={vector.initialLeft}
+          delay={vector.delay}
+          initialOpacity={1}
+          animateOpacity={0}
+        />
       ))}
       <div
         className="absolute"
