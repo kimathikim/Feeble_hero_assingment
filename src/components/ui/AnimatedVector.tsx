@@ -53,6 +53,9 @@ export const AnimatedVector = ({
         width={width}
         height={height}
         className="w-full h-full"
+        priority
+        unoptimized
+        style={{ display: 'block' }}
       />
     </motion.div>
   )

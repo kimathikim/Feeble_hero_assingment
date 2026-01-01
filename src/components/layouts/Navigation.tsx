@@ -24,6 +24,8 @@ export function Navigation() {
           height={logo.height}
           className="h-auto"
           style={{ width: logo.styleWidth }}
+          priority
+          unoptimized
         />
       </Link>
 

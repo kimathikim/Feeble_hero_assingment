@@ -22,6 +22,14 @@ export default function Page() {
         initialTop="100vh"
         initialLeft={298.18}
       />
+      <Vector
+        top={329.02}
+        left={495.3}
+      />
+      <Vector
+        top={465}
+        left={1446.18}
+      />
       <div 
         className="absolute"
         style={{
@@ -36,7 +44,6 @@ export default function Page() {
           left={1108}
           initialTop={705.42}
           initialLeft={1108}
-          delay={0.2}
         />
       </div>
       <div className="absolute w-[1680px] h-[592px] top-[40px] left-0 right-0 mx-auto px-[120px] flex flex-col items-center justify-center gap-16">
