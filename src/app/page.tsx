@@ -6,7 +6,8 @@ import { AnimatedVector } from "@/components/ui/AnimatedVector";
 import { AnimatedVectorWithBadge } from "@/components/ui/AnimatedVectorWithBadge";
 import { AnimatedCloud } from "@/components/ui/AnimatedCloud";
 import { HeroContent } from "@/components/ui/HeroContent";
-import { heroContent } from "@/constants/pageContent";
+import { ScrollToLearnMore } from "@/components/ui/ScrollToLearnMore";
+import { heroContent, scrollSection } from "@/constants/pageContent";
 import { colors } from "@/constants/colors";
 import { vectorPositions } from "@/constants/vectors";
 import { cloudContainer, clouds } from "@/constants/clouds";
@@ -80,6 +81,7 @@ export default function Page() {
           <AnimatedCloud key={index} {...cloud} />
         ))}
       </div>
+      <ScrollToLearnMore {...scrollSection} />
     </main>
   );
 }

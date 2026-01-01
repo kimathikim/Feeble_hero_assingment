@@ -40,7 +40,7 @@ export const SecondaryLink = ({ link }: SecondaryLinkProps) => {
         height={22}
         priority
         unoptimized
-        style={{ display: 'block' }}
+        className="block"
       />
       <Line width={18} borderWidth={0.5} />
       {link.text}

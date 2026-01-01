@@ -25,10 +25,9 @@ export const Vector = ({
         alt={alt}
         width={width}
         height={height}
-        className="w-full h-full"
+        className="w-full h-full block"
         priority
         unoptimized
-        style={{ display: 'block' }}
       />
     </div>
   )

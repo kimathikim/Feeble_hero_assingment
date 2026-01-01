@@ -63,7 +63,7 @@ export const AnimatedVectorWithBadge = ({
         height={imageHeight}
         priority
         unoptimized
-        style={{ display: 'block' }}
+        className="block"
       />
       {badgeProps && (
         <BadgeIcon

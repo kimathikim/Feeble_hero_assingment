@@ -1,4 +1,5 @@
 import { HeroContent } from '@/types/page';
+import { ScrollSectionProps } from '@/types/scrollSection';
 import { colors } from './colors';
 
 export const heroContent: HeroContent = {
@@ -44,6 +45,33 @@ export const heroContent: HeroContent = {
       },
       gap: '12px',
     },
+  },
+};
+
+export const scrollSection: ScrollSectionProps = {
+  container: {
+    width: 645,
+    height: 63,
+    top: 946.94,
+    left: 637.5,
+    gap: 8,
+    opacity: 1,
+  },
+  text: {
+    content: 'Scroll to learn more',
+    fontFamily: 'General Sans',
+    fontWeight: 500,
+    fontSize: '18px',
+    lineHeight: '130%',
+    letterSpacing: '-0.02em',
+    textAlign: 'center',
+    color: colors.link.dark,
+  },
+  icon: {
+    src: '/arrow-down-04.svg',
+    width: 32,
+    height: 32,
+    opacity: 1,
   },
 };
 

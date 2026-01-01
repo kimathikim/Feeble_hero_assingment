@@ -39,7 +39,7 @@ export const AnimatedCloud = ({
         height={height}
         priority
         unoptimized
-        style={{ display: 'block' }}
+        className="block"
       />
     </motion.div>
   )
