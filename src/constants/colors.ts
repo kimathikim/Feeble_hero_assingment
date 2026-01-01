@@ -26,5 +26,22 @@ export const colors = {
     black: '#000000',
     white: '#ffffff',
   },
+  
+  // Shadow colors
+  shadow: {
+    light: 'rgba(12,12,13,0.05)',
+    medium: 'rgba(0,0,0,0.15)',
+  },
+  
+  // Navigation colors
+  navigation: {
+    link: 'rgba(140, 151, 168, 1)',
+    linkHover: '#000000',
+  },
+  
+  // Layout background
+  layout: {
+    body: 'rgba(190,219,242,0.95)',
+  },
 } as const;
 

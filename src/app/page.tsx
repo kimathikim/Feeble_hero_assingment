@@ -1,12 +1,12 @@
 'use client'
 
+import Link from 'next/link'
 import { Ellipse } from '@/components/ui/ellipse'
 import { Navigation } from '@/components/layouts/Navigation'
 import { CurvedButton } from '@/components/ui/CurvedButton'
 import { BadgeIcon } from '@/components/ui/BadgeIcon'
 import { Vector } from '@/components/ui/Vector'
 import { AnimatedVector } from '@/components/ui/AnimatedVector'
-import Link from 'next/link'
 import { heroContent } from '@/constants/pageContent'
 import { colors } from '@/constants/colors'
 
@@ -44,7 +44,13 @@ export default function Page() {
         <div className="flex flex-col w-[1680px] h-[447px] items-center">
           <div className="flex flex-col w-[736px] h-[447px] items-center gap-6">
             <div className="flex flex-col w-[736px] h-[353px] gap-6 justify-start items-center">
-              <div className="flex flex-row w-auto h-auto rounded-full pt-1 pr-2 pb-[5px] pl-2 gap-2 bg-white shadow-[0_1px_4px_0_rgba(12,12,13,0.05)] justify-start items-center">
+              <div 
+                className="flex flex-row w-auto h-auto rounded-full pt-1 pr-2 pb-[5px] pl-2 gap-2 justify-start items-center"
+                style={{
+                  backgroundColor: colors.background.white,
+                  boxShadow: `0 1px 4px 0 ${colors.shadow.light}`,
+                }}
+              >
                 <BadgeIcon 
                   backgroundColor={badge.iconColor}
                 />

@@ -3,12 +3,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CurvedButtonProps } from '@/types/button';
+import { EffectProps } from '@/types/curvedButton';
 import { colors } from '@/constants/colors';
-
-interface EffectProps {
-  isHovered?: boolean;
-  hoverColor?: string;
-}
 
 const getContrastColor = (hexcolor: string) => {
   const hex = hexcolor.replace('#', '');
@@ -50,9 +46,10 @@ export const CurvedButton = ({
     <button
       onMouseEnter={() => enableHover && setIsHovered(true)}
       onMouseLeave={() => enableHover && setIsHovered(false)}
-      className={`group relative overflow-hidden transition-all active:scale-95 flex items-center justify-center gap-[6.98px] rounded-[43.62px] py-[11px] px-[18px] w-[138px] h-[41px] font-['General Sans'] border-0 ${enableHover && isHovered ? 'shadow-[0_0_10px_rgba(0,0,0,0.15)]' : 'shadow-none'}`}
+      className="group relative overflow-hidden transition-all active:scale-95 flex items-center justify-center gap-[6.98px] rounded-[43.62px] py-[11px] px-[18px] w-[138px] h-[41px] font-['General Sans'] border-0"
       style={{ 
         backgroundColor: baseColor,
+        boxShadow: enableHover && isHovered ? `0 0 10px ${colors.shadow.medium}` : 'none',
       }}
     >
       {enableHover && (

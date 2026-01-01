@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { colors } from '@/constants/colors'
 
 export const metadata: Metadata = {
   title: 'Hero Section',
@@ -13,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[rgba(190,219,242,0.95)]">{children}</body>
+      <body style={{ backgroundColor: colors.layout.body }}>{children}</body>
     </html>
   )
 }

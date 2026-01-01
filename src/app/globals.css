@@ -1,10 +1,6 @@
 @import 'tailwindcss';
 
+/* Navigation link styles - colors are applied via inline styles using colors constant */
 .nav-link {
-  color: rgba(140, 151, 168, 1);
   transition: color 0.2s ease;
-}
-
-.nav-link:hover {
-  color: black;
 }
