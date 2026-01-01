@@ -14,6 +14,7 @@ export interface AnimatedVectorWithBadgeProps {
   delay?: number
   initialOpacity?: number
   animateOpacity?: number
+  ease?: number[] | string
   badgeProps?: BadgeIconProps & {
     style?: React.CSSProperties
   }

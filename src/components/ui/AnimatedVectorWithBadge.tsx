@@ -19,6 +19,7 @@ export const AnimatedVectorWithBadge = ({
   delay = 0,
   initialOpacity = 0,
   animateOpacity = 1,
+  ease,
   badgeProps,
   alt = 'Vector',
   className = '',
@@ -48,7 +49,7 @@ export const AnimatedVectorWithBadge = ({
       transition={{
         duration,
         delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: ease ?? [0.25, 0.1, 0.25, 1],
       }}
       style={{
         width: formatContainerValue(containerWidth),
