@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+
+.nav-link {
+  color: rgba(140, 151, 168, 1);
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: black;
+}
