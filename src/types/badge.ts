@@ -3,5 +3,10 @@ export interface BadgeIconProps {
   dotColor?: string;
   angle?: number;
   className?: string;
+  style?: React.CSSProperties;
+  width?: number | string;
+  height?: number | string;
+  borderRadius?: number | string;
+  opacity?: number;
 }
 

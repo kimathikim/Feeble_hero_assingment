@@ -53,5 +53,6 @@ export const colors = {
   link: {
     dark: '#1D2026',
   },
+  
 } as const;
 

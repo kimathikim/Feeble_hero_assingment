@@ -8,26 +8,70 @@ export const BadgeIcon = ({
   dotColor = colors.utility.white,
   angle = 0,
   className = '',
+  style,
+  width = 32,
+  height = 17,
+  borderRadius,
+  opacity = 1,
 }: BadgeIconProps) => {
+  // Use absolute if provided in className, otherwise default to relative
+  const positionClass = className.includes('absolute') ? '' : 'relative';
+  
+  const widthValue = typeof width === 'number' ? `${width}px` : width;
+  const heightValue = typeof height === 'number' ? `${height}px` : height;
+  const borderRadiusValue = borderRadius !== undefined 
+    ? (typeof borderRadius === 'number' ? `${borderRadius}px` : borderRadius)
+    : '185.79px';
+  
+  // Calculate dot positions based on size (proportional to original 32x17)
+  const dotSize = typeof width === 'number' ? (width / 32) * 3.32 : '3.32px';
+  const dotTop = typeof height === 'number' ? (height / 17) * 7 : '7px';
+  const dotLeft1 = typeof width === 'number' ? (width / 32) * 8 : '8px';
+  const dotLeft2 = typeof width === 'number' ? (width / 32) * 14.64 : '14.64px';
+  const dotLeft3 = typeof width === 'number' ? (width / 32) * 21.27 : '21.27px';
+  
   return (
     <div
-      className={`relative w-[32px] h-[17px] rounded-[185.79px] ${className}`}
+      className={`${positionClass} ${className}`}
       style={{ 
         backgroundColor,
         transform: `rotate(${angle}deg)`,
+        width: widthValue,
+        height: heightValue,
+        borderRadius: borderRadiusValue,
+        opacity,
+        ...style,
       }}
     >
       <div 
-        className="absolute w-[3.32px] h-[3.32px] rounded-full top-[7px] left-[8px]"
-        style={{ backgroundColor: dotColor }}
+        className="absolute rounded-full"
+        style={{ 
+          backgroundColor: dotColor,
+          width: typeof dotSize === 'number' ? `${dotSize}px` : dotSize,
+          height: typeof dotSize === 'number' ? `${dotSize}px` : dotSize,
+          top: typeof dotTop === 'number' ? `${dotTop}px` : dotTop,
+          left: typeof dotLeft1 === 'number' ? `${dotLeft1}px` : dotLeft1,
+        }}
       />
       <div 
-        className="absolute w-[3.32px] h-[3.32px] rounded-full top-[7px] left-[14.64px]"
-        style={{ backgroundColor: dotColor }}
+        className="absolute rounded-full"
+        style={{ 
+          backgroundColor: dotColor,
+          width: typeof dotSize === 'number' ? `${dotSize}px` : dotSize,
+          height: typeof dotSize === 'number' ? `${dotSize}px` : dotSize,
+          top: typeof dotTop === 'number' ? `${dotTop}px` : dotTop,
+          left: typeof dotLeft2 === 'number' ? `${dotLeft2}px` : dotLeft2,
+        }}
       />
       <div 
-        className="absolute w-[3.32px] h-[3.32px] rounded-full top-[7px] left-[21.27px]"
-        style={{ backgroundColor: dotColor }}
+        className="absolute rounded-full"
+        style={{ 
+          backgroundColor: dotColor,
+          width: typeof dotSize === 'number' ? `${dotSize}px` : dotSize,
+          height: typeof dotSize === 'number' ? `${dotSize}px` : dotSize,
+          top: typeof dotTop === 'number' ? `${dotTop}px` : dotTop,
+          left: typeof dotLeft3 === 'number' ? `${dotLeft3}px` : dotLeft3,
+        }}
       />
     </div>
   )

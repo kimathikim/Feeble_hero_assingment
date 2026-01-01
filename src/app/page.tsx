@@ -1,130 +1,53 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import Image from 'next/image'
-import { Ellipse } from '@/components/ui/ellipse'
-import { Navigation } from '@/components/layouts/Navigation'
-import { CurvedButton } from '@/components/ui/CurvedButton'
-import { BadgeIcon } from '@/components/ui/BadgeIcon'
-import { Vector } from '@/components/ui/Vector'
-import { AnimatedVector } from '@/components/ui/AnimatedVector'
-import { Line } from '@/components/ui/Line'
-import { heroContent } from '@/constants/pageContent'
-import { colors } from '@/constants/colors'
+import { Ellipse } from "@/components/ui/ellipse";
+import { Vector } from "@/components/ui/Vector";
+import { AnimatedVector } from "@/components/ui/AnimatedVector";
+import { AnimatedVectorWithBadge } from "@/components/ui/AnimatedVectorWithBadge";
+import { HeroContent } from "@/components/ui/HeroContent";
+import { heroContent } from "@/constants/pageContent";
+import { colors } from "@/constants/colors";
+import { vectorPositions } from "@/constants/vectors";
 
 export default function Page() {
-  const { badge, heading, description, cta } = heroContent;
+  const { container, animatedVectors, staticVectors, vectorsWithBadges } =
+    vectorPositions;
 
   return (
-    <main className="relative min-h-screen overflow-hidden" style={{ backgroundColor: colors.background.lightBlue }}>
+    <main
+      className="relative min-h-screen overflow-hidden"
+      style={{ backgroundColor: colors.background.lightBlue }}
+    >
       <Ellipse />
       <AnimatedVector
-        top={291}
-        left={298.18}
-        initialTop="100vh"
-        initialLeft={298.18}
+        top={animatedVectors.top.top}
+        left={animatedVectors.top.left}
+        initialTop={animatedVectors.top.initialTop}
+        initialLeft={animatedVectors.top.initialLeft}
       />
-      <Vector
-        top={329.02}
-        left={495.3}
-      />
-      <Vector
-        top={465}
-        left={1446.18}
-      />
-      <div 
+      {staticVectors.map((vector, index) => (
+        <Vector key={index} top={vector.top} left={vector.left} />
+      ))}
+      <div
         className="absolute"
         style={{
-          width: '1407.93px',
-          height: '719.38px',
-          top: '291px',
-          left: '298.18px',
+          width: `${container.width}px`,
+          height: `${container.height}px`,
+          top: `${container.top}px`,
+          left: `${container.left}px`,
         }}
       >
         <AnimatedVector
-          top={14}
-          left={1108}
-          initialTop={705.42}
-          initialLeft={1108}
+          top={animatedVectors.bottom.top}
+          left={animatedVectors.bottom.left}
+          initialTop={animatedVectors.bottom.initialTop}
+          initialLeft={animatedVectors.bottom.initialLeft}
         />
+        {vectorsWithBadges.map((vector, index) => (
+          <AnimatedVectorWithBadge key={index} {...vector} />
+        ))}
       </div>
-      <div className="absolute w-[1680px] h-[592px] top-[40px] left-0 right-0 mx-auto px-[120px] flex flex-col items-center justify-center gap-16">
-        <Navigation />
-        <div className="flex flex-col w-[1680px] h-[447px] items-center">
-          <div className="flex flex-col w-[736px] h-[447px] items-center gap-6">
-            <div className="flex flex-col w-[736px] h-[353px] gap-6 justify-start items-center">
-              <div 
-                className="flex flex-row w-auto h-auto rounded-full pt-1 pr-2 pb-[5px] pl-2 gap-2 justify-start items-center"
-                style={{
-                  backgroundColor: colors.background.white,
-                  boxShadow: `0 1px 4px 0 ${colors.shadow.light}`,
-                }}
-              >
-                <BadgeIcon 
-                  backgroundColor={badge.iconColor}
-                />
-                <span className="font-['General Sans'] text-base font-medium leading-[120%] tracking-[-0.02em]" style={{ color: badge.textColor }}>
-                  {badge.text}
-                </span>
-              </div>
-              
-              <div className="font-['General Sans'] text-[64px] font-bold leading-[120%] tracking-[-0.02em] text-center w-[736px] h-[231px]" style={{ color: heading.textColor }}>
-                <span style={{ color: heading.highlightedColor }}>{heading.highlightedText}</span>{heading.restOfText}
-              </div>
-              
-              <p className="font-['General Sans'] text-[18px] font-normal leading-[130%] tracking-[-0.02em] text-center w-[586px] h-[46px]" style={{ color: description.textColor }}>
-                {description.text}
-              </p>
-            </div>
-            
-            <div className="flex flex-row items-center gap-4">
-              <CurvedButton
-                label={cta.primaryButton.label}
-                baseColor={cta.primaryButton.baseColor}
-                hoverColor={cta.primaryButton.hoverColor}
-                enableHover={cta.primaryButton.enableHover}
-              />
-              <Link 
-                href={cta.secondaryLink.href}
-                className="flex flex-row items-center hover:opacity-80 transition-opacity"
-                style={{ 
-                  width: cta.secondaryLink.width,
-                  height: cta.secondaryLink.height,
-                  borderRadius: cta.secondaryLink.borderRadius,
-                  border: `${cta.secondaryLink.borderWidth} solid ${colors.border.gray}`,
-                  paddingTop: cta.secondaryLink.padding?.top,
-                  paddingRight: cta.secondaryLink.padding?.right,
-                  paddingBottom: cta.secondaryLink.padding?.bottom,
-                  paddingLeft: cta.secondaryLink.padding?.left,
-                  gap: cta.secondaryLink.gap,
-                  fontFamily: "General Sans",
-                  color: cta.secondaryLink.textColor,
-                  fontSize: cta.secondaryLink.fontSize,
-                  fontWeight: cta.secondaryLink.fontWeight,
-                  lineHeight: cta.secondaryLink.lineHeight,
-                  letterSpacing: cta.secondaryLink.letterSpacing,
-                }}
-              >
-                <Image
-                  src="/apple.svg"
-                  alt="Apple"
-                  width={18}
-                  height={22}
-                  priority
-                  unoptimized
-                  style={{ display: 'block' }}
-                />
-                <Line 
-                  width={18}
-                  borderWidth={0.5}
-                />
-                {cta.secondaryLink.text}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HeroContent content={heroContent} />
     </main>
-  )
+  );
 }
-
