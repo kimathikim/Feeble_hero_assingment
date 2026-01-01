@@ -1,4 +1,5 @@
 import { BadgeIconProps } from './badge'
+import type { Easing } from 'framer-motion'
 
 export interface AnimatedVectorWithBadgeProps {
   src: string
@@ -14,7 +15,7 @@ export interface AnimatedVectorWithBadgeProps {
   delay?: number
   initialOpacity?: number
   animateOpacity?: number
-  ease?: number[] | string
+  ease?: Easing | Easing[]
   badgeProps?: BadgeIconProps & {
     style?: React.CSSProperties
   }
