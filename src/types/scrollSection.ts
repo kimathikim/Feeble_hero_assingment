@@ -14,7 +14,7 @@ export interface ScrollSectionProps {
     fontSize: string
     lineHeight: string
     letterSpacing: string
-    textAlign: string
+    textAlign: 'left' | 'center' | 'right' | 'justify' | 'start' | 'end'
     color: string
   }
   icon: {
