@@ -1,25 +1,20 @@
 import Image from 'next/image'
 import { ScrollSectionProps } from '@/types/scrollSection'
 
-export const ScrollToLearnMore = ({ container, text, icon }: ScrollSectionProps) => {
+export const ScrollToLearnMore = ({ text, icon }: ScrollSectionProps) => {
   return (
     <div
-      className="absolute flex flex-col items-center justify-center"
+      className="absolute bottom-4 sm:bottom-8 md:bottom-12 left-0 right-0 mx-auto flex flex-col items-center justify-center w-full max-w-[645px] px-4"
       style={{
-        width: `${container.width}px`,
-        height: `${container.height}px`,
-        top: `${container.top}px`,
-        left: `${container.left}px`,
-        gap: `${container.gap}px`,
-        opacity: container.opacity,
+        gap: '8px',
+        opacity: 1,
       }}
     >
       <span
-        className="text-center"
+        className="text-center text-sm sm:text-base md:text-lg"
         style={{
           fontFamily: text.fontFamily,
           fontWeight: text.fontWeight,
-          fontSize: text.fontSize,
           lineHeight: text.lineHeight,
           letterSpacing: text.letterSpacing,
           textAlign: text.textAlign,
@@ -35,7 +30,7 @@ export const ScrollToLearnMore = ({ container, text, icon }: ScrollSectionProps)
         height={icon.height}
         priority
         unoptimized
-        className="block"
+        className="block w-6 h-6 sm:w-8 sm:h-8"
         style={{ opacity: icon.opacity }}
       />
     </div>

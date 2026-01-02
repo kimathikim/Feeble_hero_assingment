@@ -14,20 +14,13 @@ export const SecondaryLink = ({ link }: SecondaryLinkProps) => {
   return (
     <Link
       href={link.href}
-      className="flex flex-row items-center hover:opacity-80 transition-opacity"
+      className="flex flex-row items-center hover:opacity-80 transition-opacity text-sm sm:text-base md:text-lg px-3 sm:px-4 md:px-5 py-2 sm:py-3"
       style={{
-        width: link.width,
-        height: link.height,
         borderRadius: link.borderRadius,
         border: `${link.borderWidth} solid ${colors.border.gray}`,
-        paddingTop: link.padding?.top,
-        paddingRight: link.padding?.right,
-        paddingBottom: link.padding?.bottom,
-        paddingLeft: link.padding?.left,
         gap: link.gap,
         fontFamily: 'General Sans',
         color: link.textColor,
-        fontSize: link.fontSize,
         fontWeight: link.fontWeight,
         lineHeight: link.lineHeight,
         letterSpacing: link.letterSpacing,
@@ -40,10 +33,10 @@ export const SecondaryLink = ({ link }: SecondaryLinkProps) => {
         height={22}
         priority
         unoptimized
-        className="block"
+        className="block w-4 h-5 sm:w-[18px] sm:h-[22px]"
       />
       <Line width={18} borderWidth={0.5} />
-      {link.text}
+      <span className="whitespace-nowrap">{link.text}</span>
     </Link>
   )
 }

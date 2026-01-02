@@ -27,53 +27,48 @@ export default function Page() {
       style={{ backgroundColor: colors.background.lightBlue }}
     >
       <Ellipse />
-      <AnimatedVector
-        top={animatedVectors.top.top}
-        left={animatedVectors.top.left}
-        initialTop={animatedVectors.top.initialTop}
-        initialLeft={animatedVectors.top.initialLeft}
-      />
-      {staticVectors.map((vector, index) => (
-        <Vector key={index} top={vector.top} left={vector.left} />
-      ))}
-      {fadeOutVectors.map((vector, index) => (
+      {/* Decorative vectors - hidden on mobile, visible on larger screens */}
+      <div className="hidden lg:block">
         <AnimatedVector
-          key={`fade-out-${index}`}
-          top={vector.top}
-          left={vector.left}
-          initialTop={vector.initialTop}
-          initialLeft={vector.initialLeft}
-          delay={vector.delay}
-          initialOpacity={1}
-          animateOpacity={0}
+          top={animatedVectors.top.top}
+          left={animatedVectors.top.left}
+          initialTop={animatedVectors.top.initialTop}
+          initialLeft={animatedVectors.top.initialLeft}
         />
-      ))}
-      <div
-        className="absolute"
-        style={{
-          width: `${container.width}px`,
-          height: `${container.height}px`,
-          top: `${container.top}px`,
-          left: `${container.left}px`,
-        }}
-      >
-        <AnimatedVector
-          top={animatedVectors.bottom.top}
-          left={animatedVectors.bottom.left}
-          initialTop={animatedVectors.bottom.initialTop}
-          initialLeft={animatedVectors.bottom.initialLeft}
-        />
-        {vectorsWithBadges.map((vector, index) => (
-          <AnimatedVectorWithBadge key={index} {...vector} />
+        {staticVectors.map((vector, index) => (
+          <Vector key={index} top={vector.top} left={vector.left} />
         ))}
+        {fadeOutVectors.map((vector, index) => (
+          <AnimatedVector
+            key={`fade-out-${index}`}
+            top={vector.top}
+            left={vector.left}
+            initialTop={vector.initialTop}
+            initialLeft={vector.initialLeft}
+            delay={vector.delay}
+            initialOpacity={1}
+            animateOpacity={0}
+          />
+        ))}
+        <div
+          className="absolute w-[90vw] lg:w-[80vw] xl:w-[1408px] h-[50vw] lg:h-[50vw] xl:h-[719px] top-[25vw] lg:top-[20vw] xl:top-[291px] left-1/2 -translate-x-1/2"
+        >
+          <AnimatedVector
+            top={animatedVectors.bottom.top}
+            left={animatedVectors.bottom.left}
+            initialTop={animatedVectors.bottom.initialTop}
+            initialLeft={animatedVectors.bottom.initialLeft}
+          />
+          {vectorsWithBadges.map((vector, index) => (
+            <AnimatedVectorWithBadge key={index} {...vector} />
+          ))}
+        </div>
       </div>
       <HeroContent content={heroContent} />
+      {/* Cloud background - responsive width */}
       <div
-        className="absolute"
+        className="absolute left-0 right-0 w-full overflow-hidden top-[60vh] sm:top-[65vh] md:top-[70vh] lg:top-[686px] h-[40vh] sm:h-[45vh] md:h-[50vh] lg:h-[582px]"
         style={{
-          width: `${cloudContainer.width}px`,
-          height: `${cloudContainer.height}px`,
-          top: `${cloudContainer.top}px`,
           opacity: cloudContainer.opacity,
         }}
       >

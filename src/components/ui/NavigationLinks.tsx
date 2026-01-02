@@ -10,7 +10,7 @@ export function NavigationLinks() {
 
   return (
     <div
-      className="absolute flex items-center gap-2 font-['General Sans'] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 justify-start h-[38px] py-2 px-3 w-fit min-w-[95px]"
+      className="flex items-center gap-2 font-['General_Sans'] justify-center h-[38px] py-2 px-3"
       style={{ color: colors.utility.white }}
     >
       {navigationLinks.map((link) => {
@@ -19,8 +19,8 @@ export function NavigationLinks() {
           <Link
             key={link.href}
             href={link.href}
-            className={`nav-link cursor-pointer flex items-center justify-center h-[38px] py-2 px-3 font-['General Sans'] text-base font-medium leading-none tracking-normal transition-colors ${
-              link.label === 'Join & Guides' ? 'min-w-[122px]' : ''
+            className={`nav-link cursor-pointer flex items-center justify-center h-[38px] py-2 px-3 font-['General_Sans'] text-sm md:text-base font-medium leading-none tracking-normal transition-colors whitespace-nowrap ${
+              link.label === 'Join & Guides' ? 'md:min-w-[122px]' : ''
             } ${isActive ? 'opacity-100' : 'opacity-90 hover:opacity-100'}`}
             style={{
               color: isActive ? colors.utility.white : colors.navigation.link,
@@ -36,7 +36,7 @@ export function NavigationLinks() {
               }
             }}
           >
-            <span className="h-[22px]">{link.label}</span>
+            <span>{link.label}</span>
           </Link>
         )
       })}

@@ -90,19 +90,19 @@ export const CurvedButton = ({
     <button
       onMouseEnter={() => enableHover && setIsHovered(true)}
       onMouseLeave={() => enableHover && setIsHovered(false)}
-      className="group relative overflow-hidden transition-all active:scale-95 flex items-center justify-center gap-[6.98px] rounded-[43.62px] py-[11px] px-[18px] w-[138px] h-[41px] font-['General Sans'] border-0"
+      className="group relative overflow-hidden transition-all active:scale-95 flex items-center justify-center gap-[6.98px] rounded-[43.62px] py-2 sm:py-[11px] px-4 sm:px-[18px] min-w-[120px] sm:min-w-[138px] h-[36px] sm:h-[41px] font-['General_Sans'] border-0"
       style={{ 
         backgroundColor: baseColor,
         boxShadow: enableHover && isHovered ? `0 0 10px ${colors.shadow.medium}` : 'none',
       }}
     >
-      <div className="absolute inset-0 z-0 w-[138px] h-[41px] overflow-hidden">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         {enableHover && (
           <EllipseReveal isHovered={isHovered} hoverColor={hoverColor} />
         )}
       </div>
       <span 
-        className="relative z-10 text-[16px] font-medium leading-[120%] tracking-[-0.02em] font-['General Sans'] transition-colors duration-500 h-[19px]"
+        className="relative z-10 text-[14px] sm:text-[16px] font-medium leading-[120%] tracking-[-0.02em] font-['General_Sans'] transition-colors duration-500"
         style={{ 
           color: textColor,
         }}
