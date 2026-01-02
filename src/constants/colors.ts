@@ -10,6 +10,7 @@ export const colors = {
   background: {
     white: '#ffffff',
     lightBlue: 'rgba(232,244,255,0.95)',
+    hover: 'rgba(249, 250, 251, 1)',
   },
   utility: {
     black: '#000000',
