@@ -14,6 +14,10 @@ export function Navigation() {
   const { logo, contactButton } = navigationConfig
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
   return (
     <>
       <nav 
